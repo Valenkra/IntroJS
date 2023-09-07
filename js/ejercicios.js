@@ -1,4 +1,6 @@
-function calcularEdad(edad){
+function calcularEdad(name, edad){
+    name = document.getElementById(name).value;
+    edad = document.getElementById(edad).value;
     const age = new Date(edad);
     const date = new Date();
     let year = date.getFullYear() - age.getFullYear();
@@ -7,22 +9,15 @@ function calcularEdad(edad){
     } else if(date.getMonth() == age.getMonth() && date.getDay() <= age.getDay()){
         year += 1;
     }
-    return year;
+    console.log(`Hola ${name}, tienes ${year} años!`);
 }
 
 function tirandoFruta(fruta){
+    fruta = document.getElementById(fruta).value;
     const frutas = ["banana", "manzana", "anana", "durazno", "cereza", 
                     "naranja", "frutilla", "sandia", "melon", "pera"];
 
     if(frutas.find(fruit => fruit == fruta)){
-        return true;
-    }else{
-        return false;
-    }
-}
-
-function showFruta(fruta){
-    if(tirandoFruta(fruta)){
         console.log(`Sí, tenemos ${fruta}!`);
     }else{
         console.log(`No, no tenemos ${fruta}!`);
@@ -46,12 +41,16 @@ function dobleElementos(nums){
 }
 
 function triangle(rows){
+    rows = document.getElementById(rows).value;
+    rows = (rows > 30) ? 30 : rows;
     for (let i = 1; i <= rows; i++) {
         console.log("*".repeat(i));
     }
 }
 
 function secondTriangle(margin, rows){
+    rows = document.getElementById(rows).value;
+    rows = (rows > 31) ? 31 : rows;
     if(rows % 2 == 0){
         alert("It has to be and odd number!");
     }else{
@@ -67,6 +66,8 @@ function secondTriangle(margin, rows){
 }
 
 function thirdTriangle(rows, repeat){
+    rows = document.getElementById(rows).value;
+    rows = (rows > 30) ? 30 : rows;
     for (let i = 1; i <= rows; i++) {
         first = "*".repeat(i);
         second = "#".repeat(rows-i);
@@ -80,11 +81,6 @@ function thirdTriangle(rows, repeat){
 console.log("Tenes " + calcularEdad('2007-04-12') + " años");
 console.log("");
 comparando();
-console.log("");
-let frutas = ["banana", "mandarina", "ciruela", "naranja", "manzana"];
-for (let index = 0; index < frutas.length; index++) {
-    showFruta(frutas[index]);
-}
 console.log("");
 triangle(10);
 console.log("");
