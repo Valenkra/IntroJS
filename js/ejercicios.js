@@ -76,24 +76,6 @@ function thirdTriangle(rows, repeat){
     }
 }
 
-
-
-// PRATICA 
-function creandoObject(){
-    const Cartuchera = {
-        lapices: "Faber Castel",
-        cantLapices: 20,
-        hayBirome: true,
-        resaltadores: "Filgo",
-        hayRegla: false
-    }
-
-    for(const item in Cartuchera){
-        console.log(`${item} : ${Cartuchera[item]}`);
-    }
-}
-
-
 // Ejecutando funciones:
 console.log("Tenes " + calcularEdad('2007-04-12') + " años");
 console.log("");
@@ -113,4 +95,3 @@ console.log("");
 thirdTriangle(10,3);
 console.log("");
 console.log(dobleElementos([1,2,3,4,5]));
-/* creandoObject(); */
