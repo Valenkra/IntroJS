@@ -1,6 +1,4 @@
-function calcularEdad(name, edad){
-    name = document.getElementById(name).value;
-    edad = document.getElementById(edad).value;
+function calcularEdad(edad){
     const age = new Date(edad);
     const date = new Date();
     let year = date.getFullYear() - age.getFullYear();
@@ -9,47 +7,70 @@ function calcularEdad(name, edad){
     } else if(date.getMonth() == age.getMonth() && date.getDay() <= age.getDay()){
         year += 1;
     }
-    console.log(`Hola ${name}, tienes ${year} años!`);
+    return year;
 }
 
-function tirandoFruta(fruta){
-    fruta = document.getElementById(fruta).value;
+function tirandoFruta(){
+    const resultado = document.getElementById("resultado");
+    fruta = prompt("Que fruta buscas");
     const frutas = ["banana", "manzana", "anana", "durazno", "cereza", 
                     "naranja", "frutilla", "sandia", "melon", "pera"];
 
     if(frutas.find(fruit => fruit == fruta)){
-        console.log(`Sí, tenemos ${fruta}!`);
+        resultado.innerHTML = `Sí, tenemos ${fruta}!`;
     }else{
-        console.log(`No, no tenemos ${fruta}!`);
+        resultado.innerHTML = `No, no tenemos ${fruta}!`;
     }
 }
 
 function comparando(){
-    console.log("10 == '10' : " + (10 == '10'));
-    console.log("10 === '10' : " + (10 === '10'));
-    console.log("Uno esta comparando el value y otro el tipo. Por eso el primero da true y el segundo false.");
-    console.log("El 10.6 es de tipo : " + typeof 10.6);
-    console.log("true == 1 : " + (true == 1));
+    let resultado = document.getElementById("resultado");
+    resultado = ("10 == '10' : " + (10 == '10'));
+    resultado += ("\n 10 === '10' : " + (10 === '10'));
+    resultado += ("\n Uno esta comparando el value y otro el tipo. Por eso el primero da true y el segundo false.");
+    resultado += ("\n El 10.6 es de tipo : " + typeof 10.6);
+    resultado += ("\n true == 1 : " + (true == 1));
 }
 
 function yoObjeto(){
+    const Ciudad = new Object();
+    Ciudad.Nombre = prompt("Cual es el nombre de la ciudad");
+    Ciudad.FechaDeFundacion = prompt("En que fecha fue fundado?");
+    Ciudad.Poblacion = prompt("Cual es su poblacion por metro cuadrado?");
+    Ciudad.Extension = prompt("Cual es su nivel de extension?");
 
+    let res = "";
+    for(const item in Ciudad){
+        res += `${item} : ${Ciudad[item]} /// `;
+    }
+
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = res;
 }
 
-function dobleElementos(nums){
-    return nums.filter(num => num * 2);
+function dobleElementos(){
+    nums = prompt("Pasame una lista de numeros sepradas por una ',' (coma) para multiplicar por 2");
+    numeros = nums.split(',');
+    num = []
+    for (let index = 0; index < numeros.length; index++) {
+        num.push(numeros[index]*2);
+    }
+    
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = num;
 }
 
 function triangle(rows){
-    rows = document.getElementById(rows).value;
+    rows = prompt("Que tan alto queres que sea?");
     rows = (rows > 30) ? 30 : rows;
     for (let i = 1; i <= rows; i++) {
         console.log("*".repeat(i));
     }
 }
 
-function secondTriangle(margin, rows){
-    rows = document.getElementById(rows).value;
+function secondTriangle(rows, margin){
+    rows = prompt("Que tan alto queres que sea?");
+    margin = prompt("Cuanto margen queres que tenga a los lados?");
     rows = (rows > 31) ? 31 : rows;
     if(rows % 2 == 0){
         alert("It has to be and odd number!");
@@ -66,7 +87,8 @@ function secondTriangle(margin, rows){
 }
 
 function thirdTriangle(rows, repeat){
-    rows = document.getElementById(rows).value;
+    rows = prompt("Que tan alto queres que sea?");
+    repeat = prompt("Cuantos triangulos queres?");
     rows = (rows > 30) ? 30 : rows;
     for (let i = 1; i <= rows; i++) {
         first = "*".repeat(i);
@@ -76,18 +98,3 @@ function thirdTriangle(rows, repeat){
         console.log((first + second + third + four).repeat(repeat));
     }
 }
-
-// Ejecutando funciones:
-console.log("Tenes " + calcularEdad('2007-04-12') + " años");
-console.log("");
-comparando();
-console.log("");
-triangle(10);
-console.log("");
-secondTriangle(0,15);
-console.log("");
-secondTriangle(3,15);
-console.log("");
-thirdTriangle(10,3);
-console.log("");
-console.log(dobleElementos([1,2,3,4,5]));

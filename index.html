@@ -8,27 +8,32 @@
 </head>
 <body>
     <div>
-        <input type="text" id="name" placeholder="Nombre">
-        <input type="date" id="age" placeholder="Edad">
-        <input type="button" value="submit" id="boton" onclick="calcularEdad(document.getElementById('name').id, document.getElementById('age').id)">
+        <input type="button" value="Calcular edad" id="boton" onclick="showCalcEdad()">
     </div>
     <div>
-        <input type="text" id="fruta" placeholder="Qué fruta busca?">
-        <input type="button" value="submit" id="boton" onclick="tirandoFruta(document.getElementById('fruta').id)">
+        <input type="button" value="Buscar fruta" id="boton" onclick="tirandoFruta()">
     </div>
     <div>
         <input type="button" value="Comparar datos y tipos" id="boton" onclick="comparando()">
     </div>
     <div>
-        <input type="number" id="margin" placeholder="Que margen queres?">
-        <input type="number" id="rows" max="100" placeholder="Que tan alto es?">
-        <input type="button" value="Triangulo 1" id="boton" onclick="triangle(document.getElementById('rows').id)">
-        <input type="button" value="Triangulo 2" id="boton" onclick="comparando()">
-        <input type="button" value="Triangulo 3" id="boton" onclick="comparando()">
+        <input type="button" value="Crear objeto" id="boton" onclick="yoObjeto()">
     </div>
     <div>
-        <input type="button" value="Limpiar pantalla 3" id="boton" onclick="console.clear()">
+        <input type="button" value="Triangulo 1" id="boton" onclick="triangle()">
+        <input type="button" value="Triangulo 2" id="boton" onclick="secondTriangle()">
+        <input type="button" value="Triangulo 3" id="boton" onclick="thirdTriangle()">
     </div>
+    <div>
+        <input type="button" value="Duplicar lista" id="boton" onclick="dobleElementos()">
+    </div>
+    <div>
+        <input type="button" value="Limpiar consola" id="boton" onclick="console.clear()">
+    </div>
+
+
+    <div id="resultado"></div>
     <script src="js/ejercicios.js"></script>
+    <script src="js/utils.js"></script>
 </body>
 </html>
