@@ -8,21 +8,57 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <input type="button" value="Calcular edad" id="boton" onclick="showCalcEdad()">
-        <input type="button" value="Buscar fruta" id="boton" onclick="tirandoFruta()">
+    <div id="resultado"></div>
+
+    <div class="flex">
+        <div class="flex__inside">
+            <label for="text">Cómo te llamas</label>
+            <input type="text" id="name" required>
+            <label for="date">En que fecha naciste</label>
+            <input type="date" id="fecha" required>
+            <input type="button" value="Calcular edad" id="boton" onclick="showCalcEdad('name', 'fecha')">
+        </div>
+
+        <div class="flex__inside">
+            <input type="text" id="fruta" placeholder="Qué fruta buscas?">
+            <input type="button" value="Buscar fruta" id="boton" onclick="tirandoFruta('fruta')">
+        </div>
         <input type="button" value="Comparar datos y tipos" id="boton" onclick="comparando()">
-        <input type="button" value="Crear objeto" id="boton" onclick="yoObjeto()">
-        <input type="button" value="Triangulo 1" id="boton" onclick="triangle()">
-        <input type="button" value="Triangulo 2" id="boton" onclick="secondTriangle()">
-        <input type="button" value="Triangulo 3" id="boton" onclick="thirdTriangle()">
+
+        <div class="flex__inside">
+            <input type="text" placeholder="Cuál es el nombre de la ciudad?" id="name1">
+            <label for="date">En que fecha de fundó</label>
+            <input type="date" id="date">
+            <input type="number" placeholder="Cuantos ciudadanos tiene?" id="population">
+            <input type="number" placeholder="Cual es su extensión por metro cuadrado?" id="extension">
+            <input type="button" value="Crear objeto" id="boton" onclick="yoObjeto('name1', 'date', 'population', 'extension')">
+        </div>
+
+        <div class="triangulos">
+            <div class="flex__inside" style="justify-content: flex-end;">
+                <input type="number" placeholder="Altura" id="rows1">
+                <input type="button" value="Triangulo 1" id="boton" onclick="triangle('rows1')">
+            </div>
+    
+            <div class="flex__inside">
+                <input type="number" placeholder="Altura" id="rows2">
+                <input type="number" placeholder="Cantidad de margen" min="0" value="0" id="margen">
+                <input type="button" value="Triangulo 2" id="boton" onclick="secondTriangle('rows2', 'margen')">
+            </div>
+    
+            <div class="flex__inside">
+                <input type="number" placeholder="Altura" id="rows3">
+                <input type="number" placeholder="Cantidad de repeticiones" min="1" value="1" id="repeat">
+                <input type="button" value="Triangulo 3" id="boton" onclick="thirdTriangle('rows3', 'repeat')">
+            </div>
+        </div>
+
         <input type="button" value="Duplicar lista" id="boton" onclick="dobleElementos()">
         <input type="button" value="Limpiar consola" id="boton" onclick="console.clear()">
     </div>
 
 
 
-    <div id="resultado"></div>
     <script src="js/ejercicios.js"></script>
     <script src="js/utils.js"></script>
 </body>
