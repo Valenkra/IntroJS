@@ -1,5 +1,4 @@
-function calcularEdad(edad){
-    const age = new Date(edad);
+function calcularEdad(age){
     const date = new Date();
     let year = date.getFullYear() - age.getFullYear();
     if(date.getMonth() < age.getMonth()){
@@ -16,10 +15,14 @@ function tirandoFruta(frut){
     const frutas = ["banana", "manzana", "anana", "durazno", "cereza", 
                     "naranja", "frutilla", "sandia", "melon", "pera"];
 
-    if(frutas.find(fruit => fruit == fruta)){
-        resultado.innerHTML = `Sí, tenemos ${fruta}!`;
-    }else{
-        resultado.innerHTML = `No, no tenemos ${fruta}!`;
+    if(fruta != ""){
+        if(frutas.find(fruit => fruit == fruta)){
+            resultado.innerHTML = `Sí, tenemos ${fruta}!`;
+        }else{
+            resultado.innerHTML = `No, no tenemos ${fruta}!`;
+        }
+    }else {
+        resultado.innerHTML = `Falta información, por favor rellená todos los inputs necesarios.`;
     }
 }
 
@@ -37,7 +40,6 @@ function yoObjeto(name, date, popu, ext){
     let fecha = document.getElementById(date).value;
     let population = document.getElementById(popu).value;
     let extent = document.getElementById(ext).value;
-    console.log(nombre);
     const fechaFundacion = new Date(fecha);
     const Ciudad = new Object();
 
@@ -98,6 +100,7 @@ function secondTriangle(row, marg){
 function thirdTriangle(row, rept){
     let rows = document.getElementById(row).value;
     let repeat = document.getElementById(rept).value;
+    alert("Abrí la consola!");
     rows = (rows > 30) ? 30 : rows;
     for (let i = 1; i <= rows; i++) {
         first = "*".repeat(i);
@@ -105,5 +108,17 @@ function thirdTriangle(row, rept){
         third = "#".repeat(rows-i);
         four = "*".repeat(i);
         console.log((first + second + third + four).repeat(repeat));
+    }
+}
+
+function textoACortar(texto, cantACortar){
+    const text = document.getElementById(texto).value;
+    const cant = document.getElementById(cantACortar).value;
+
+    const resultado = document.getElementById("resultado");
+    if(text == "" || cant === NaN){
+        resultado.innerHTML = `Falta información, por favor rellená todos los inputs necesarios.`;
+    }else {
+        resultado.innerHTML = `${text.substring(0,cantACortar)}`;
     }
 }
