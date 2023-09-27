@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>Intro JS - Valencha</title>
 </head>
 <body>
     <header>
@@ -16,17 +18,17 @@
         <div class="flex">
             <div class="flex__inside">
                 <label for="text">Cómo te llamas</label>
-                <input type="text" id="name" required>
+                <input type="text" placeholder="Tu nombre" id="name" required>
                 <label for="date">En que fecha naciste</label>
                 <input type="date" id="fecha" required>
-                <input type="button" value="Calcular edad" id="boton" onclick="showCalcEdad('name', 'fecha')">
+                <input type="submit" value="Calcular edad" id="boton" onclick="showCalcEdad('name', 'fecha')">
             </div>
     
             <div class="flex__inside">
                 <input type="text" id="fruta" placeholder="Qué fruta buscas?">
-                <input type="button" value="Buscar fruta" id="boton" onclick="tirandoFruta('fruta')">
+                <input type="submit" value="Buscar fruta" id="boton" onclick="tirandoFruta('fruta')">
             </div>
-            <input type="button" value="Comparar datos y tipos" id="boton" onclick="comparando()">
+            <input type="submit" value="Comparar datos y tipos" id="boton" onclick="comparando()">
     
             <div class="flex__inside">
                 <input type="text" placeholder="Cuál es el nombre de la ciudad?" id="name1">
@@ -34,36 +36,61 @@
                 <input type="date" id="date">
                 <input type="number" placeholder="Cuantos ciudadanos tiene?" id="population">
                 <input type="number" placeholder="Cual es su extensión por metro cuadrado?" id="extension">
-                <input type="button" value="Crear objeto" id="boton" onclick="yoObjeto('name1', 'date', 'population', 'extension')">
+                <input type="submit" value="Crear objeto" id="boton" onclick="yoObjeto('name1', 'date', 'population', 'extension')">
             </div>
     
             <div class="triangulos">
                 <div class="flex__inside" style="justify-content: flex-end;">
                     <input type="number" placeholder="Altura" value="5" id="rows1">
-                    <input type="button" value="Triangulo 1" id="boton" onclick="triangle('rows1')">
+                    <input type="submit" value="Triangulo 1" id="boton" onclick="triangle('rows1')">
                 </div>
         
                 <div class="flex__inside">
                     <input type="number" placeholder="Altura" value="5" id="rows2">
                     <input type="number" placeholder="Cantidad de margen" min="0" value="0" id="margen">
-                    <input type="button" value="Triangulo 2" id="boton" onclick="secondTriangle('rows2', 'margen')">
+                    <input type="submit" value="Triangulo 2" id="boton" onclick="secondTriangle('rows2', 'margen')">
                 </div>
         
                 <div class="flex__inside">
                     <input type="number" placeholder="Altura" value="5" id="rows3">
                     <input type="number" placeholder="Cantidad de repeticiones" min="1" value="1" id="repeat">
-                    <input type="button" value="Triangulo 3" id="boton" onclick="thirdTriangle('rows3', 'repeat')">
+                    <input type="submit" value="Triangulo 3" id="boton" onclick="thirdTriangle('rows3', 'repeat')">
                 </div>
             </div>
     
             <div class="flex__inside">
                 <input type="text" placeholder="Texto a cortar" id="text-cortar">
                 <input type="number" placeholder="Hasta que caracter lo corto?" min="0" id="text_num-cortar">
-                <input type="button" value="Texto a cortar" id="boton" onclick="textoACortar('text-cortar', 'text_num-cortar')">
+                <input type="submit" value="Texto a cortar" id="boton" onclick="textoACortar('text-cortar', 'text_num-cortar')">
+            </div>
+
+            <div class="flex__inside">
+                <input type="text" placeholder="Texto original" id="placeholder">
+                <input type="text" placeholder="Palabra a reemplazar" id="word-change">
+                <input type="text" placeholder="Palabra de reemplazo" id="reemplazo">
+                <input type="submit" value="Reemplazar palabra" id="boton" onclick="reemplazoDePalabras('placeholder', 'word-change', 'reemplazo')">
+            </div>
+
+            <div class="flex__inside">
+                <input type="text" placeholder="Lista de nombres separado por ', ' (coma) + espacio" id="lista-N">
+                <input type="text" placeholder="Nombre que empiece con la letra" value="A" id="letra">
+                <input type="submit" value="Buscar palabra separada por coma" id="boton" onclick="listaDeNombres('lista-N', 'letra')">
+            </div>
+
+            <div class="flex__inside">
+                <input type="text" placeholder="Lista separada por ', ' (coma) + espacio" id="lista-S">
+                <input type="text" placeholder="Nuevo separador" value="-" id="separador">
+                <input type="submit" value="Cambiar separador" id="boton" onclick="stringConSeparador('lista-S', 'separador')">
+            </div>
+
+            <div class="flex__inside">
+                <label for="">Ticket de compra:</label>
+                <input type="text" placeholder="Hamburguesa:2,8,Pizza:3.5" id="lista-Compra">
+                <input type="submit" value="Cambiar separador" id="boton" onclick="ticketDePedido('lista-Compra')">
             </div>
     
-            <input type="button" value="Duplicar lista" id="boton" onclick="dobleElementos()">
-            <input type="button" value="Limpiar consola" id="boton" onclick="console.clear()">
+            <input type="submit" value="Duplicar lista" id="boton" onclick="dobleElementos()">
+            <input type="submit" value="Limpiar consola" id="boton" onclick="console.clear()">
         </div>
     </main>
     <script src="js/ejercicios.js"></script>

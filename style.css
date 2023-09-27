@@ -1,3 +1,7 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
 .flex {
     display: flex;
     flex-direction: column;
@@ -43,4 +47,30 @@ header {
 
 main {
     padding-top: 8em;
+    margin-bottom: 3rem;
+}
+
+input[type="submit"] {
+    background-color: #6c3174;
+    color: white;
+    border: solid 1px #311135;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}	
+
+input[type="submit"]:hover {
+    background-color: #311135;
+}
+
+input[type="submit"]:active {
+    background-color: rgb(77, 20, 85);
+}
+
+input[type="text"], input[type="number"], input[type="date"] {
+    padding-left: 15px;
+}
+
+input[type="date"]{
+    padding-right: 15px;
 }

@@ -72,6 +72,7 @@ function dobleElementos(){
 function triangle(row){
     let rows = document.getElementById(row).value;
     alert("Abrí la consola!");
+    console.log(" ");
     rows = (rows > 30) ? 30 : rows;
     for (let i = 1; i <= rows; i++) {
         console.log("*".repeat(i));
@@ -82,6 +83,7 @@ function secondTriangle(row, marg){
     let rows = document.getElementById(row).value;
     let margin = document.getElementById(marg).value;
     rows = (rows > 31) ? 31 : rows;
+    console.log(" ");
     if(rows % 2 == 0){
         alert("It has to be and odd number!");
     }else{
@@ -101,6 +103,7 @@ function thirdTriangle(row, rept){
     let rows = document.getElementById(row).value;
     let repeat = document.getElementById(rept).value;
     alert("Abrí la consola!");
+    console.log(" ");
     rows = (rows > 30) ? 30 : rows;
     for (let i = 1; i <= rows; i++) {
         first = "*".repeat(i);
@@ -113,12 +116,72 @@ function thirdTriangle(row, rept){
 
 function textoACortar(texto, cantACortar){
     const text = document.getElementById(texto).value;
-    const cant = document.getElementById(cantACortar).value;
+    let cant = document.getElementById(cantACortar).value;
 
     const resultado = document.getElementById("resultado");
     if(text == "" || cant === NaN){
         resultado.innerHTML = `Falta información, por favor rellená todos los inputs necesarios.`;
     }else {
-        resultado.innerHTML = `${text.substring(0,cantACortar)}`;
+        resultado.innerHTML = `Su texto es: ${text.substring(0,cant)}`;
+    }
+}
+
+function reemplazoDePalabras(text, word, reemp){
+    const texto = document.getElementById(text).value;
+    const palabra = document.getElementById(word).value;
+    const reemplazo = document.getElementById(reemp).value;
+
+    const resultado = document.getElementById("resultado");
+    if(texto == "" || palabra == "" || reemplazo == ""){
+        resultado.innerHTML = `Falta información, por favor rellená todos los inputs necesarios.`;
+    }else {
+        resultado.innerHTML = `${texto.replace(palabra, reemplazo)}`;
+    }
+}
+
+function listaDeNombres(lista, letra){
+    const list = document.getElementById(lista).value;
+    const letter = document.getElementById(letra).value.toLowerCase();
+
+    const resultado = document.getElementById("resultado");
+    if(list == "" || letter == ""){
+        resultado.innerHTML = `Falta información, por favor rellená todos los inputs necesarios.`;
+    }else {
+        const lista = list.split(', ');
+        console.log(lista);
+        let everything = lista.filter(item => item.toLowerCase().startsWith(letter));
+        resultado.innerHTML = everything.join(', ');
+    }
+}
+
+function stringConSeparador(texto, separador){
+    const text = document.getElementById(texto).value;
+    const sep = document.getElementById(separador).value;
+
+    const resultado = document.getElementById("resultado");
+    if(text == "" || sep == NaN){
+        resultado.innerHTML = `Falta información, por favor rellená todos los inputs necesarios.`;
+    }else {
+        resultado.innerHTML = text.split(',').join(' ' + sep + ' ');
+    }
+}
+
+function ticketDePedido(lista){
+    const list = document.getElementById(lista).value;
+    const listaDeProductos = list.split(',');
+    const listDeResultados = listaDeProductos.map(item => item.split(':'));
+    let total = 0;
+
+    console.log(listDeResultados.length);
+    for (let index = 0; index < listDeResultados.length; index++) {
+        let element = listDeResultados[index][1];
+        total += parseInt(element);
+    }
+
+    const resultado = document.getElementById("resultado");
+    if(list == ""){
+        resultado.innerHTML = `Falta información, por favor rellená todos los inputs necesarios.`;
+    }else {
+        resultado.innerHTML = `Total: $${total}`;
     }
 }

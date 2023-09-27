@@ -13,11 +13,3 @@ function showCalcEdad(name, fecha){
 function isValidDate(d) {
     return d instanceof Date && !isNaN(d);
   }
-
-function checkInput(variable, type){
-    if(typeof(variable) != type){
-        return null;
-    }else{
-        return true;
-    }
-}
